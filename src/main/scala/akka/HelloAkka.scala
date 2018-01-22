@@ -7,8 +7,6 @@ object HelloAkka extends App {
   val mySystem = ActorSystem("mySystem")
 
   val hiActor: ActorRef = mySystem.actorOf(Props(new Hello("Hi")), name="greeter")
-  hiActor ! "hi"
-  Thread.sleep(1000)
 
   hiActor ! "hello"
   Thread.sleep(1000)
@@ -22,7 +20,7 @@ object HelloAkka extends App {
 class Hello(val hello: String) extends Actor {
   val log = Logging(context.system, this)
   override def receive: Receive = {
-    case `hello` => log.info(s"Received ${hello}")
+    case `hello` => log.info(s"Received $hello!")
     case msg => {
       log.info(s"Unexpected message ${msg}")
       context.stop(self)
