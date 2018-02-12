@@ -7,15 +7,18 @@ import scala.io.Source
   */
 object TMSFileError extends App {
 
-  val lines = Source.fromFile("/Users/kakao/tms_error_test.csv", "utf-8").getLines
+//  val lines = Source.fromFile("/Users/kakao/tms_error.csv", "utf-8").getLines
+  val lines = Source.fromFile("/Users/kakao/list.csv", "utf-8").getLines
   
+  var i = 0
   lines.foreach(line => {
     try {
+      i += 1
       val a = line.toInt
 //      println(s"${line.toInt},")  
     } catch {
 //      case _ => println(s"${line},error")
-      case _ => println(s"${line}")
+      case _ => println(s"$i : ${line}")
     }
   })
 

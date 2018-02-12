@@ -8,7 +8,7 @@ import scala.io.Source
 object FileReadTest extends App {
 
 //  val head = Source.fromFile("/Users/kakao/a.csv", "utf-8").getLines.toList.head
-  val head = Source.fromFile("/Users/kakao/tms_error_test.csv", "utf-8").getLines.toList.head
+  val head = Source.fromFile("/Users/kakao/tms_error.csv", "utf-8").getLines.toList.head
   
   println(head)
   println(head.startsWith("\\uFEFF"))

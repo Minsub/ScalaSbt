@@ -27,7 +27,7 @@ object ParentChildAkka extends App {
 class ParentActor extends Actor {
   var log = Logging(context.system, this)
   override def receive: Receive = {
-    case "create" => 
+    case "create" =>
       context.actorOf(Props[ChildActor])
     case "hi" => 
       log.info("Kids, say hi!")
